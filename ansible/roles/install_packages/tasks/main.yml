@@ -1,0 +1,10 @@
+-   name: ensure required packages installed
+    package: name={{item}} state=latest update_cache=yes cache_valid_time=3600
+    with_items:
+        - python
+        - python-pip
+        - python-mysqldb
+        - mysql-client
+#        - python-dev
+        - nginx
+        - git

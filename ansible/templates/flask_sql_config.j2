@@ -1,0 +1,8 @@
+app_config = {}
+
+app_config['MYSQL_DATABASE_USER'] = "{{ mysql.username }}@{{ mysql.server_name }}"
+app_config['MYSQL_DATABASE_PASSWORD'] = "{{ mysql.password }}"
+app_config['MYSQL_DATABASE_DB'] = "{{ mysql.db_name }}"
+app_config['MYSQL_DATABASE_HOST'] = "{{ mysql.server_name }}.mysql.database.azure.com"
+app_config['MYSQL_DATABASE_PORT'] = {{ mysql.port }}
+

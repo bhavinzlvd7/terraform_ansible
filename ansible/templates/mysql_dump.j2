@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS {{ mysql.db_name }};
+CREATE DATABASE {{ mysql.db_name }};
+USE {{ mysql.db_name }};
+CREATE TABLE employees (name VARCHAR(20));
+INSERT INTO employees VALUES ('Bhavin Zalavadia');

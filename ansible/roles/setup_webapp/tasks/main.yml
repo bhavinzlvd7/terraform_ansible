@@ -1,0 +1,19 @@
+-   name: git clone
+    command: git clone https://github.com/bhavinzlvd7/flask_app_with_mysql.git creates=flask_app_with_mysql
+
+-   name: pip install -r requirements.txt
+    command: pip install -r flask_app_with_mysql/requirements.txt
+
+-   name: Copy flask mysql app config file
+    template:
+        src: 'templates/flask_sql_config.j2'
+        dest: 'flask_app_with_mysql/mysql_config.py'
+        mode: 0777
+
+-   name: export FLASK_APP app.py and Start flask run -h 0.0.0.0
+    shell: export "FLASK_APP=app.py"; nohup flask run -h 0.0.0.0 &
+    args:
+        chdir: flask_app_with_mysql/
+    register: out
+-   debug: msg="{{ out.stdout }}"
+-   debug: msg="{{ out.stderr }}"

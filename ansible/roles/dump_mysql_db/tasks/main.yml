@@ -1,0 +1,14 @@
+-   name: Copy database dump file
+    template:
+        src: 'templates/{{ dump_file }}.j2'
+        dest: '{{ dump_file }}.sql'
+        mode: 0777
+-   name: Restore database to default
+    mysql_db:
+        name: my_db
+        state: import
+        target: "{{ dump_file }}.sql"
+        login_host: "{{ mysql.server_name }}.mysql.database.azure.com"
+        login_port: "{{ mysql.port }}"
+        login_user: "{{ mysql.username }}@{{ mysql.server_name }}"
+        login_password: "{{ mysql.password }}"

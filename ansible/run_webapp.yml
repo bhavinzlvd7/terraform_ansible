@@ -1,0 +1,14 @@
+-   name: Install required packages
+    hosts: '{{ vm_name }}'
+    become: yes
+    become_user: root
+    roles:
+        -   install_packages
+
+-   name: setup and run python web app
+    hosts: '{{ vm_name }}'
+    become: yes
+    become_user: root
+    roles:
+        -   dump_mysql_db
+        -   setup_webapp
